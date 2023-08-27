@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, ManyToMany, JoinTable } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToMany, JoinTable } from "typeorm";
 import { Genero } from "./Genero";
+import { Episodio } from "./Episodio";
 
 @Entity()
 export class Anime{
@@ -25,6 +26,8 @@ export class Anime{
 
     @Column()
     urlImagem: string;
+
+    @OneToMany(()=> Episodio, episodio => episodio.anime)
 
     @ManyToMany(type => Genero, genero => genero.animes)
     @JoinTable()
