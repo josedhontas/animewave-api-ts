@@ -1,0 +1,12 @@
+version: '3'
+services: 
+    db:
+        image: 'postgres:latest'
+        environment:
+            POSTGRES_PASSWORD: animewave
+            POSTGRES_USER: animewave
+            POSTGRES_DB: animewave
+        volumes:
+          - ./pgdata:/var/lib/postgresql/data
+        ports: 
+            - "5432:5432"
